@@ -1,0 +1,20 @@
+[
+  {
+    "email": "aluno@gmail.com",
+    "senhaHash": "3c2dc6928614e204cd2a676a3d5ec8eb:f43d510545cca802116a3c788cc62c2a7ad7ac373b813f953f10113814250d52b2579ffaf13ad9c5c45c51c2c04b0e5e4f0e68401aa1ebd2dbd8d90bc58e6f6d",
+    "role": "aluno",
+    "criadoEm": "2026-10-08T14:33:37.878Z"
+  },
+  {
+    "email": "julia.dolinski@gmail.com",
+    "senhaHash": "38a718ab2a5dc7cb47a5302381dfa18c:a917d58b85be8ad2b04a76e562db5e70cefd9d355e1b3ebd3f438efe841fbf66b8e3184e7009c69c2a97ef2a54643dccd75efb401df0b9ea987cdd2d59fc928a",
+    "role": "aluno",
+    "criadoEm": "2026-10-20T10:58:19.479Z"
+  },
+  {
+    "email": "juliadoliski@gmail.com",
+    "senhaHash": "ea4a1a5ee36c9c76586ec3227dc37513:f3355a29078bf8581f54c1a74ade7ab87b5eacc000219133d8e7880717be992828e0cae0f5aa8bb1a539c75d9dcd4440044ec7e9e84c5bdb3bb9e8f47ec50316",
+    "role": "aluno",
+    "criadoEm": "2026-10-20T13:22:44.789Z"
+  }
+]

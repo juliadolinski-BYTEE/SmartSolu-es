@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achados e Perdidos - CEEP Curitiba</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+
+<!-- TELA DE LOGIN ISOLADA -->
+<div id="login-screen">
+    <div class="login-card">
+        <img src="./assets/ceepcwb-no-background.png" alt="Brasão CEEP" class="login-logo">
+        <h2>Acesso ao Sistema</h2>
+        <p>Achados & Perdidos - CEEP Curitiba</p>
+        
+        <form id="form-login" onsubmit="autenticarUsuario(event)">
+            <div class="form-group">
+                <label>E-mail Institucional</label>
+                <input type="email" id="login-email" placeholder="exemplo@ceep.com" required>
+            </div>
+            <div class="form-group">
+                <label>Senha de Acesso</label>
+                <input type="password" id="login-senha" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn-submit">Entrar na Plataforma</button>
+        </form>
+    </div>
+</div>
+
+<!-- APLICAÇÃO PRINCIPAL -->
+<div id="app-container" style="display: none;">
+    <!-- BARRA LATERAL ESQUERDA: Menu Geral -->
+    <aside id="sidebar-menu">
+        <div class="logo-container">
+            <img src="./assets/ceepcwb-no-background.png" alt="Brasão CEEP Curitiba" class="logo-ceep">
+        </div>
+        
+        <nav id="menu-abas">
+            <button class="btn-aba active" onclick="mudarAba('inicio', event)">
+                <span class="icon">🏠</span> Início
+            </button>
+            <button class="btn-aba" onclick="mudarAba('chatbot', event)">
+                <span class="icon">🤖</span> Assistente
+            </button>
+            <button id="aba-menu-cadastrar" class="btn-aba" onclick="mudarAba('cadastrar', event)">
+                <span class="icon">📝</span> Cadastrar Item
+            </button>
+            <button class="btn-aba" onclick="mudarAba('relatorio', event)">
+                <span class="icon">📋</span> Ver Itens
+            </button>
+        </nav>
+
+        <div class="sidebar-footer">
+            <span id="user-badge" class="user-role-badge">Painel</span>
+            <button class="btn-logout" onclick="fazerLogout()">Sair 🚪</button>
+        </div>
+    </aside>
+
+    <!-- ÁREA DA DIREITA: Conteúdo Dinâmico -->
+    <main id="conteudo-dinamico">
+        
+                <!-- ABA 1: Painel Inicial -->
+        <section id="aba-inicio" class="aba-conteudo active">
+            <div class="header-interna">
+                <h1>Achados & Perdidos</h1>
+                <p>Plataforma inteligente de gerenciamento de pertences do CEEP Curitiba.</p>
+            </div>
+            
+            <div class="grid-informacoes">
+
+                <div class="card-info card-largo">
+                    <div class="card-icon">🏫</div>
+                    <h3>Sobre o CEEP Curitiba</h3>
+                    <p>O <strong>Centro Estadual de Educação Profissional de Curitiba</strong> é uma escola pública estadual, mantida pelo Governo do Paraná. Oferece Ensino Médio integrado à formação técnica e cursos técnicos subsequentes (para quem já concluiu o Ensino Médio), todos gratuitos. Fica no bairro Boqueirão e é conhecido como uma das escolas mais tradicionais do Paraná.</p>
+                </div>
+
+                <div class="card-info card-largo">
+                    <div class="card-icon">🎓</div>
+                    <h3>Cursos Técnicos</h3>
+                    <div class="chips">
+                        <span class="chip">Biotecnologia</span>
+                        <span class="chip">Edificações</span>
+                        <span class="chip">Eletromecânica</span>
+                        <span class="chip">Eletrônica</span>
+                        <span class="chip">Mecânica</span>
+                        <span class="chip">Meio Ambiente</span>
+                        <span class="chip">Manutenção Automotiva</span>
+                        <span class="chip">Química</span>
+                        <span class="chip">Desenvolvimento de Sistemas</span>
+                        <span class="chip">Programação de Jogos Digitais</span>
+                    </div>
+                </div>
+
+                <div class="card-info">
+                    <div class="card-icon">📍</div>
+                    <h3>Retirada de Itens</h3>
+                    <p>Objetos validados fisicamente são guardados na <strong>Pedagogia</strong> ou na <strong>Secretaria Geral</strong>.</p>
+                </div>
+                <div class="card-info">
+                    <div class="card-icon">🕒</div>
+                    <h3>Horário de Funcionamento</h3>
+                    <p>Segunda a Sexta: 07:00 às 18:30</p>
+                </div>
+
+                <div class="card-info">
+                    <div class="card-icon">🗺️</div>
+                    <h3>Onde Fica</h3>
+                    <p>
+                        Rua Frederico Maurer, 3015<br>
+                        Boqueirão, Curitiba - PR<br>
+                        CEP 81670-020
+                    </p>
+                    <p style="margin-top: 12px;">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Rua+Frederico+Maurer+3015+Boqueir%C3%A3o+Curitiba" target="_blank" rel="noopener noreferrer">Ver no mapa</a>
+                    </p>
+                </div>
+                <div class="card-info">
+                    <div class="card-icon">🏛️</div>
+                    <h3>Estrutura do Colégio</h3>
+                    <ul class="lista-info">
+                        <li>Biblioteca com sala de leitura</li>
+                        <li>Auditório</li>
+                        <li>Laboratórios de ciências e de informática</li>
+                        <li>Quadras esportivas coberta e descoberta</li>
+                    </ul>
+                </div>
+
+                <div class="card-info card-largo">
+                    <div class="card-icon">💡</div>
+                    <h3>Como usar o sistema</h3>
+                    <ul class="lista-info">
+                        <li><strong>🤖 Assistente:</strong> conte o que você perdeu ou achou e a IA registra para você.</li>
+                        <li><strong>📋 Ver Itens:</strong> consulte a lista completa e filtre por perdidos ou achados.</li>
+                        <li><strong>📝 Cadastrar Item:</strong> registro manual, disponível para administradores (funcionários e inspetores).</li>
+                    </ul>
+                </div>
+
+                <div class="card-info card-largo">
+                    <div class="card-icon">🌐</div>
+                    <h3>Site do Colégio</h3>
+                    <p>
+                        <a href="https://ceep-frontend.vercel.app" target="_blank" rel="noopener noreferrer">www.ceepcuritiba.com.br</a>
+                    </p>
+                    <!-- Para adicionar o telefone oficial, coloque aqui: <p>Telefone: (41) XXXX-XXXX</p> -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABA 2: Assistente Virtual (IA) -->
+        <section id="aba-chatbot" class="aba-conteudo">
+            <div id="chat-wrapper">
+                <div id="chat-header">
+                    <div class="status-indicator"></div>
+                    <div>
+                        <h2>Assistente Virtual CEEP</h2>
+                        <p>Fale com a IA para registrar o que perdeu ou achou no colégio</p>
+                    </div>
+                </div>
+                <div id="chat-messages">
+                    <div class="message assistant">
+                        Olá! Sou o assistente de IA do CEEP Curitiba. Como posso te ajudar hoje? Você perdeu algum objeto ou encontrou algo de outro aluno?
+                    </div>
+                </div>
+                <div id="chat-input-area">
+                    <input type="text" id="input-message" placeholder="Escreva sua mensagem aqui...">
+                    <button id="btn-enviar" onclick="enviarMensagem()">Enviar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABA 3: Formulário de Cadastro Manual -->
+        <section id="aba-cadastrar" class="aba-conteudo">
+            <div class="header-interna">
+                <h1>Cadastro de Pertences</h1>
+                <p>Inserção manual de registros para funcionários e inspetores.</p>
+            </div>
+            <form id="form-cadastro" onsubmit="cadastrarItemManual(event)">
+                <div class="form-group">
+                    <label>Situação do Objeto</label>
+                    <select id="form-tipo" required>
+                        <option value="perdido">Perdido (Procurando Dono)</option>
+                        <option value="achado">Achado (Guardado na Secretaria)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Nome do Item</label>
+                    <input type="text" id="form-item" placeholder="Ex: Chave de carro, Casaco de moletom" required>
+                </div>
+                <div class="form-group">
+                    <label>Localização (Bloco/Setor)</label>
+                    <input type="text" id="form-local" placeholder="Ex: Refeitório, Bloco C, Quadra" required>
+                </div>
+                <div class="form-group">
+                    <label>Descrição Extra / Observações</label>
+                    <textarea id="form-desc" placeholder="Ex: Chaveiro do Star Wars, casaco tamanho G azul escuro"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Registrar Objeto</button>
+            </form>
+        </section>
+
+        <!-- ABA 4: Painel de Relatórios Dinâmicos -->
+        <section id="aba-relatorio" class="aba-conteudo">
+            <div class="header-interna">
+                <h1>Painel de Registros</h1>
+                <p>Veja e filtre a lista completa de objetos arquivados pela IA ou manualmente.</p>
+            </div>
+
+            <!-- Filtros de Classificação -->
+            <div class="filtros-classificacao">
+                <button class="btn-filtro active" onclick="filtrarItens('todos', event)">📋 Todos</button>
+                <button class="btn-filtro" onclick="filtrarItens('perdido', event)">❌ Perdidos</button>
+                <button class="btn-filtro" onclick="filtrarItens('achado', event)">✅ Achados</button>
+            </div>
+
+            <div class="tabela-wrapper">
+                <table id="tabela-itens">
+                    <thead>
+                        <tr>
+                            <th>Protocolo</th>
+                            <th>Status</th>
+                            <th>Item</th>
+                            <th>Localização</th>
+                            <th>Detalhes</th>
+                            <th class="coluna-acao-admin">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-itens-corpo">
+                        <!-- Gerado de forma automática via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script src="./assets/js/api.js"></script>
+<script src="./assets/js/chatbot.js"></script>
+</body>
+</html>

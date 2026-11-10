@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot Auxiliar</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        .chat-box { background: white; border: 1px solid #cbd5e1; height: 400px; border-radius: 0.5rem; display: flex; flex-direction: column; overflow: hidden; }
+        .chat-messages { flex: 1; padding: 1rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.75rem; }
+        .message { padding: 0.75rem 1rem; border-radius: 0.5rem; max-width: 75%; word-wrap: break-word; }
+        .message.bot { background: #e2e8f0; align-self: flex-start; }
+        .message.user { background: var(--secondary); color: white; align-self: flex-end; }
+        .chat-input-area { display: flex; border-top: 1px solid #cbd5e1; }
+        .chat-input-area input { flex: 1; border: none; padding: 1rem; outline: none; font-size: 1rem; }
+        .chat-input-area button { border-radius: 0; padding: 0 1.5rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Assistente Virtual de Achados</h1>
+    </header>
+    <nav>
+        <a href="../index.html">Ver Itens</a>
+        <a href="cadastrar.html">Registrar Item</a>
+        <a href="chatbot.html">Conversar com o Bot 🤖</a>
+    </nav>
+    <div class="container" style="max-width: 700px;">
+        <div class="chat-box">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">Olá! Perdeu algum pertence na escola? Me diga o que foi e tentarei procurar no nosso sistema se alguém já o entregou!</div>
+            </div>
+            <form id="chatForm" class="chat-input-area" style="box-shadow:none; padding:0; max-width:100%;">
+                <input type="text" id="userInput" placeholder="Ex: Perdi um casaco azul ontem no pátio..." autocomplete="off" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../assets/js/chatbot.js"></script>
+</body>
+</html>
